@@ -13,23 +13,39 @@ function App() {
       setTheme(savedTheme);
     }
 
-    const params = new URLSearchParams(window.location.search);
-    const langParam = params.get('lang');
-    const codeParam = params.get('code');
+    const updateViewFromURL = () => {
+      const params = new URLSearchParams(window.location.search);
+      const langParam = params.get('lang');
+      const codeParam = params.get('code');
 
-    if (langParam) {
-      setSelectedLanguage(langParam);
-      setCurrentView('compiler');
-    }
-
-    if (codeParam) {
-      try {
-        const decodedCode = decodeURIComponent(codeParam);
-        localStorage.setItem(`code-${langParam}`, decodedCode);
-      } catch (error) {
-        console.error('Failed to decode shared code:', error);
+      if (langParam) {
+        setSelectedLanguage(langParam);
+        setCurrentView('compiler');
+      } else {
+        setCurrentView('home');
       }
-    }
+
+      if (codeParam) {
+        try {
+          const decodedCode = decodeURIComponent(codeParam);
+          localStorage.setItem(`code-${langParam}`, decodedCode);
+        } catch (error) {
+          console.error('Failed to decode shared code:', error);
+        }
+      }
+    };
+
+    updateViewFromURL();
+
+    const handlePopState = () => {
+      updateViewFromURL();
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
   }, []);
 
   const handleThemeToggle = () => {

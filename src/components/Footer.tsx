@@ -42,37 +42,37 @@ export default function Footer({ theme }: FooterProps) {
             </h4>
             <div className="flex flex-col ">
               <a
-                href="https://github.com"
+                href="?lang=python"
                 className={`${theme === 'dark' ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition-colors`}
               >
                 Python
               </a>
               <a
-                href="https://linkedin.com"
+                href="?lang=javascript"
                 className={`${theme === 'dark' ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition-colors`}
               >
                 JavaScript
               </a>
               <a
-                href="https://twitter.com"
+                href="?lang=typescript"
                 className={`${theme === 'dark' ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition-colors`}
               >
                 TypeScript
               </a>
                <a
-                href="https://twitter.com"
+                href="?lang=java"
                 className={`${theme === 'dark' ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition-colors`}
               >
                 Java
               </a>
                <a
-                href="https://twitter.com"
+                href="?lang=c"
                 className={`${theme === 'dark' ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition-colors`}
               >
                 C
               </a>
                <a
-                href="https://twitter.com"
+                href="?lang=cpp"
                 className={`${theme === 'dark' ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition-colors`}
               >
                 C++
